@@ -1,0 +1,33 @@
+---
+title: "Part b of the exercise 1"
+author: "Ahmadreza Yousefkhani"
+date: "9/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Description
+Create an HTML document that samples 100 values from a log-normal distribution (say, $\mu=1, \sigma=.25$); create a histogram of the distribution and the distribution on the log scale; report the mean and variance of the sample in line in the text. 
+
+## Solution
+First, I am going to sample the values from a log-normal. As the standard deviation cannot be negative, I am considering that the values given in the question are in the log scale:
+```{r}
+samp <- rlnorm(n = 100, meanlog = 1 , sdlog = 0.25)
+```
+
+Now plotting the histogram of the samples:
+```{r}
+hist(samp, breaks = 20, main = "Histogram of 100 log-normals")
+```
+
+Plotting the histogram of the distribution on the log-scale:
+```{r}
+hist(log(samp), breaks = 20, main = "Histogram of 100 log-normals")
+```
+
+The sample mean is `r mean(samp)` and the sample variance is `r var(samp)`.
+This was the end of this exercise!
+
